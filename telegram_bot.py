@@ -1,7 +1,19 @@
 
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-from app.services.ia_engine import gerar_sinais
+fromdef gerar_sinais():
+    return [
+        {
+            "jogo": "Benfica vs Porto",
+            "previsao": "Empate",
+            "confianca": "78%"
+        },
+        {
+            "jogo": "Arsenal vs Chelsea",
+            "previsao": "Vitória Arsenal",
+            "confianca": "83%"
+        }
+    ]
 from app.config import TELEGRAM_TOKEN
 
 async def sinais(update: Update, context: ContextTypes.DEFAULT_TYPE):
