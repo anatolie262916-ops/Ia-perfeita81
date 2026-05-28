@@ -1,7 +1,7 @@
 
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-fromdef gerar_sinais():
+from def gerar_sinais():
     return [
         {
             "jogo": "Benfica vs Porto",
