@@ -1,39 +1,24 @@
-
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-from def gerar_sinais():
-    return [
-        {
-            "jogo": "Benfica vs Porto",
-            "previsao": "Empate",
-            "confianca": "78%"
-        },
-        {
-            "jogo": "Arsenal vs Chelsea",
-            "previsao": "Vitória Arsenal",
-            "confianca": "83%"
-        }
-    ]
-from app.config import TELEGRAM_TOKEN
 
-async def sinais(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    dados = gerar_sinais()
-
-    texto = "🚨 IA EXTREMA - SINAIS\n\n"
-
-    for item in dados:
-        texto += (
-            f"⚽ {item['jogo']}\n"
-            f"🎯 {item['previsao']}\n"
-            f"📈 Confiança: {item['confianca']}\n\n"
-        )
-
-    await update.message.reply_text(texto)
+TELEGRAM_TOKEN =8346701498:AAHRz3zckfQlkHVTFUdQrimvOzjxe5PCf_U
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "🔥 IA EXTREMA ativa. Usa /sinais"
-    )
+    await update.message.reply_text("🔥 IA EXTREMA ONLINE!")
+
+async def sinais(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    texto = """
+🚨 IA EXTREMA 🚨
+
+⚽ Benfica vs Porto
+🎯 Empate
+📈 Confiança: 78%
+
+⚽ Arsenal vs Chelsea
+🎯 Vitória Arsenal
+📈 Confiança: 83%
+"""
+    await update.message.reply_text(texto)
 
 app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 
